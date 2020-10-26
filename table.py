@@ -16,10 +16,10 @@ class Table(tk.Frame):
         if row == 0:
           if haveOwner and column == ownerPosition:
             label = tk.Label(
-                self, bg=titleColor, text=titles[column], borderwidth=0, width=15, font='Helvetica 10 bold')
+                self, bg=titleColor, text=titles[column], borderwidth=0, width=15, font='ComicSans 10 bold')
           else:
             label = tk.Label(
-                self, bg=titleColor, text=titles[column], borderwidth=0, width=9, font='Helvetica 10 bold')
+                self, bg=titleColor, text=titles[column], borderwidth=0, width=9, font='ComicSans 10 bold')
         else:
           if haveOwner and column == ownerPosition:
             label = tk.Label(self, bg=color, borderwidth=0, width=15)

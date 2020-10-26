@@ -1,2 +1,2 @@
 # Arqui2_Proyecto1
-Double click on gui.py or execute pyhton3 gui.py
+Double click on gui.py or execute python3 gui.py

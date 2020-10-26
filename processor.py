@@ -31,6 +31,7 @@ class Processor(threading.Thread):
     self._guiQueue = guiQueue
 
     self._gameMode = gameMode
+    self._triggerFlag=False
 
 
 
@@ -39,7 +40,7 @@ class Processor(threading.Thread):
   def run(self):
 
     counter = 0
-    manual= True
+   # manual= True
 
     while True:
 
@@ -82,7 +83,7 @@ class Processor(threading.Thread):
         
         else:
             
-            if manual==True:
+            if self._triggerFlag==True:
                 nice=input("Digite la inst para el procesador "+ str(self._name)+ ": ")
                 instr=nice
                 #time.sleep(30)

@@ -16,6 +16,7 @@ class CpuSystem(threading.Thread):
     self._Limit=False
     self._flag = False #Pause event
     #self._flag.set() #As True
+    self._triggerins=False
     self.endThread= limit
     self._running = threading.Event() # Used to stop the thread identification
     self._running.set() # Set running to True
@@ -139,11 +140,22 @@ class CpuSystem(threading.Thread):
 
 
           while True:
-              
+
+              ok=input("Desea ingresar instrucciones este ciclo? Y/n:" + """
+                                                                            """)
+              if ok== "Y" or ok == "y":
+                self._chips[0]._buses[0].cpu._triggerFlag=True
+                self._chips[0]._buses[1].cpu._triggerFlag=True
+                self._chips[1]._buses[0].cpu._triggerFlag=True
+                self._chips[1]._buses[1].cpu._triggerFlag=True
+              else:
+                self._chips[0]._buses[0].cpu._triggerFlag=False
+                self._chips[0]._buses[1].cpu._triggerFlag=False
+                self._chips[1]._buses[0].cpu._triggerFlag=False
+                self._chips[1]._buses[1].cpu._triggerFlag=False 
               #ok=input("Presione enter para ver los cambios :3")
               memoryPetition = self._chipQueueOut.get().split(',')
 
-              time.sleep(1)
               memoryReturn = self._memory.controlMemory(
                   memoryPetition[0], memoryPetition[1], int(memoryPetition[2]),
                   int(memoryPetition[3]), memoryPetition[4])
